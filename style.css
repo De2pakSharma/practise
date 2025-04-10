@@ -1,31 +1,119 @@
  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: rgb(209, 207, 207);
+  padding: 10px 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  max-height: 50px;
+}
+
+ 
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 999;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color:   #343434;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+ 
+#menu-toggle {
+  display: none;
+}
+
+ 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color:   #343434;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: red;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #343434;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+}
+
+.search-box i {
+  color:   #343434;
+}
+
+ 
+@media (max-width: 991px) {
+  .menu-icon {
+    display: flex;
   }
 
-  body {
-    font-family: Arial, sans-serif;
-    color: white;
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(209, 207, 207);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 10px;
+    display: none;
   }
 
-  .navbar-brand {
-    font-weight: bold;
-    font-size: 1.5rem;
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    display: flex;
+  }
+  #menu-toggle:checked + .menu-icon .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
   }
 
-  .form-control::placeholder {
-    color: #888;
+  #menu-toggle:checked + .menu-icon .bar:nth-child(2) {
+    opacity: 0;
   }
 
-  @media (max-width: 991px) {
-    .search-form {
-      margin-top: 10px;
-    }
+  #menu-toggle:checked + .menu-icon .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
   }
-
-
-
-
-
-  
+}
